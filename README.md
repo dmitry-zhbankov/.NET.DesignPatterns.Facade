@@ -1,0 +1,2 @@
+# Facade
+This app represents implementation of a facade design pattern. Facade is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes. There are a sophisticaded multimedia framework ffmpeg. This app provides class with simple interface to convert video files based on ffmpeg features.
