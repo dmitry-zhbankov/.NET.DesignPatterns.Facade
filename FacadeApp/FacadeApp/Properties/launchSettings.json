@@ -2,7 +2,7 @@
   "profiles": {
     "FacadeApp": {
       "commandName": "Project",
-      "commandLineArgs": "ffmpeg\\videoplayback.mp4 og3"
+      "commandLineArgs": "ffmpeg\\videoplayback.mp4 ogg"
     }
   }
 }
