@@ -1,4 +1,6 @@
-﻿namespace FacadeApp
+﻿using System;
+
+namespace FacadeApp
 {
     class SimpleConverter
     {
@@ -15,10 +17,18 @@
                     codec = new OGGCodec();
                     break;
                 default:
-                    return;
+                    throw new FormatException($"Format \"{format}\" is not supported. Only \"mp4\" or \"ogg\"");                    
             }
             VideoCoverter videoCoverter = new VideoCoverter();
-            videoCoverter.Convert(videoFile, codec);            
+            int res= videoCoverter.Convert(videoFile, codec);
+            if (res==0)
+            {
+                Console.WriteLine("Conversion successful");
+            }
+            else
+            {
+                Console.WriteLine("Conversion failed");
+            }
         }
     }
 }

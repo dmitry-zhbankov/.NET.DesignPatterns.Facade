@@ -5,35 +5,31 @@ namespace FacadeApp
 {
     class VideoFile
     {
+        public string FullPath { get; private set; }
         public string FileName { get; private set; }
-        public string SourceFormat { get; private set; }        
+        public string Extension { get; private set; }               
         public VideoFile(string filename)
         {
             if (File.Exists(filename))
             {
-                SourceFormat = Path.GetExtension(filename).ToLower();
-                switch (SourceFormat)
+                Extension = Path.GetExtension(filename).ToLower();                
+                switch (Extension)
                 {
-                    case "avi":
-                    case "mp4":
+                    case ".avi":
+                    case ".mp4":
+                    case ".mov":
+                    case ".flv":
+                    case ".wmv":                    
+                        FullPath = Path.GetFullPath(filename);                        
                         FileName = Path.GetFileNameWithoutExtension(filename);
                         break;
                     default:
-                        throw new FormatException();                        
-                }
-                //Regex regex = new Regex($".*\\.[mp4|ogg]",RegexOptions.IgnoreCase);
-                //if (regex.IsMatch(filename))
-                //{
-                //    path = filename;
-                //}
-                //else
-                //{
-                //    throw new FormatException();
-                //}
+                        throw new FormatException($"Convertion to \"{Extension}\" is not supported");                        
+                }                
             }
             else
             {
-                throw new FileNotFoundException();
+                throw new FileNotFoundException($"Videofile \"{filename}\" is not exist");
             }
         }
     }

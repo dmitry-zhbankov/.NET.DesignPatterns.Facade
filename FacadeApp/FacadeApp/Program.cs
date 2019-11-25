@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace FacadeApp
@@ -7,9 +8,26 @@ namespace FacadeApp
     {
         static void Main(string[] args)
         {
-            SimpleConverter converter = new SimpleConverter();
-            converter.Convert("file.avi", "mp4");
-            converter.Convert("file.avi", "ogg");
+            if (args.Length>1)
+            {                                
+                string file = args[0];
+                string format = args[1];
+                Console.WriteLine($"Converting \"{file}\" into {format}");
+                SimpleConverter converter = new SimpleConverter();
+                try
+                {
+                    converter.Convert(file, format);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error. ExeptionType={ex.GetType()}. ExeptionMessage=\"{ex.Message}\"");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid arguments. Usage: \"FacadeApp.exe <file_path> <format>\"");
+            }
+            Console.ReadKey();
         }
     }
 }
