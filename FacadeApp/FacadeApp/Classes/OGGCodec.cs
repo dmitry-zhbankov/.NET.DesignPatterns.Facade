@@ -2,7 +2,7 @@
 {
     class OGGCodec : Codec
     {
-        public OGGCodec():base("ogg")
+        public OGGCodec() : base("ogg")
         {
 
         }

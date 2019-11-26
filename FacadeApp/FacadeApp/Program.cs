@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace FacadeApp
 {
@@ -8,8 +6,8 @@ namespace FacadeApp
     {
         static void Main(string[] args)
         {
-            if (args.Length>1)
-            {                                
+            if (args.Length > 1)
+            {
                 string file = args[0];
                 string format = args[1];
                 Console.WriteLine($"Converting \"{file}\" into {format}");

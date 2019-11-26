@@ -2,7 +2,7 @@
 {
     class MPEG4Codec : Codec
     {
-        public MPEG4Codec():base("mp4")
+        public MPEG4Codec() : base("mp4")
         {
 
         }

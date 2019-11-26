@@ -17,11 +17,11 @@ namespace FacadeApp
                     codec = new OGGCodec();
                     break;
                 default:
-                    throw new FormatException($"Format \"{format}\" is not supported. Only \"mp4\" or \"ogg\"");                    
+                    throw new FormatException($"Format \"{format}\" is not supported. Only \"mp4\" or \"ogg\"");
             }
             VideoCoverter videoCoverter = new VideoCoverter();
-            int res= videoCoverter.Convert(videoFile, codec);
-            if (res==0)
+            int res = videoCoverter.Convert(videoFile, codec);
+            if (res == 0)
             {
                 Console.WriteLine("Conversion successful");
             }

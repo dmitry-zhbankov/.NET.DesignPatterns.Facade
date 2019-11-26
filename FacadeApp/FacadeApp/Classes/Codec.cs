@@ -12,7 +12,7 @@ namespace FacadeApp
             this.format = format;
         }
         public int Encode(VideoFile videoFile)
-        {            
+        {
             string arguments = $"-i {videoFile.FullPath} {videoFile.FileName}_output.{format} -hide_banner -loglevel quiet";
             Console.WriteLine("Starting convertion process");
             Process process = new Process();
@@ -28,7 +28,7 @@ namespace FacadeApp
             else
             {
                 throw new FileNotFoundException("File ffmpeg\\ffmpeg.exe is missing");
-            }            
+            }
         }
     }
 }
